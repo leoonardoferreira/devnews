@@ -5,37 +5,29 @@
 }
 
 :root {
-    --body-bg-color: #121214;
+    --body-bg-color: #000;
     --text-color: #E1E1E6;
-    --title-color: #00C2A6;
+    --title-color: #C35257;
     --form-color: #A8A8A8;
     --bg-button-color: #C9A48C;
 }
 
 body {
     display: flex;
-    /* padding: clamp(.5rem, .5rem + 10vw, 5rem); */
     background-color: var(--body-bg-color);
     color: var(--text-color)
 }
 
-
-/* main {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
-} */
-
 main {
+    transition: opacity 0.3s ease;
+    background-color: var(--body-bg-color);
+    padding: clamp(.5rem, .5rem + 10vw, 5rem);
     margin: 0 auto;
 }
 
-
-/* div.bg {
-    display: flex;
-    justify-content: right;
-    flex: 1;
-} */
+main.loading {
+    opacity: 0;
+}
 
 h1 {
     font-family: 'Schibsted Grotesk', sans-serif;
@@ -98,20 +90,26 @@ input {
     background: #fff;
     border-left: var(--title-color) 5px solid;
     padding-left: .9375rem;
+    filter: drop-shadow(4px 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+input:focus { /*retirar a borda do input quando clicado*/
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }
 
 ::placeholder {
     font-family: 'Work Sans', sans-serif;
 }
 
-button {
+.input button {
     background-color: var(--bg-button-color);
     border: none;
     width: 3rem;
     transition: 400ms;
 }
 
-button:hover,
+.input button:hover,
 a:hover {
     filter: brightness(0.92);
     cursor: pointer;
@@ -126,16 +124,16 @@ a {
     justify-items: space-around;
 }
 
-/* .hide {
-    display: none;
-} */
+p.ty {
+    font-weight: bold;
+}
 
-@media (min-width: 992px) {
+@media (min-width: 900px) {
     body {
         font-family: 'Spartan', 'Work Sans', sans-serif;
         height: 100vh;
         display: grid;
-        grid-template-columns: 720px 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     main {
@@ -145,7 +143,7 @@ a {
 
     aside {
         height: 100vh;
-        background-image: url(./assets/read_news.jpg);
+        background-image: url(./assets/newsletteruser.jpg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
